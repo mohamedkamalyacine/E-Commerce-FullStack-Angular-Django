@@ -1,0 +1,24 @@
+<form [formGroup]="logInForm">
+    <div class="form-group">
+        <label>Email:</label>
+        <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" type="email" class="form-control" />
+        <div *ngIf="email?.invalid && email?.touched">
+            <small class="text-danger" *ngIf="email?.errors?.['required']">Email is required</small>
+            <small class="text-danger" *ngIf="email?.errors?.['pattern']">Email must be in these forms test@test.com, test.est@exampl.co.eg, test1458@email.com</small>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Password</label>
+        <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password" type="password" class="form-control" />
+        <div *ngIf="password?.invalid && password?.touched">
+            <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
+        </div>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
